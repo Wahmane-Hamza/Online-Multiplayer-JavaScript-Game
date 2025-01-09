@@ -285,16 +285,46 @@ window.addEventListener('keyup', (event) => {
   }
 })
 
+let value = "";
+document.addEventListener("DOMContentLoaded", () => {
+  // Select the elements
+  const selectedOption = document.getElementById("selectedOption");
+  const optionsContainer = document.querySelector(".options");
+  const options = document.querySelectorAll(".option");
+  optionsContainer.style.display = "none";
+
+  // Toggle the options visibility
+  selectedOption.addEventListener("click", () => {
+    optionsContainer.style.display = optionsContainer.style.display === "none" ? "block" : "none";
+  });
+
+  // Handle selection of an option
+  options.forEach(option => {
+    option.addEventListener("click", () => {
+      value = option.getAttribute("data-value");
+      selectedOption.textContent = option.textContent.trim();
+      optionsContainer.style.display = "none";
+    });
+  });
+  
+  
+});
+
+// let background;
+
 document.querySelector('#usernameForm').addEventListener('submit', (event) => {
   event.preventDefault()
   document.querySelector('#usernameForm').style.display = 'none'
   const username = document.querySelector('#usernameInput').value
+  // background = document.getElementById("bg").value|| "white";
+  console.log(value);
   socket.emit('initGame', {
     width: canvas.width,
     height: canvas.height,
     devicePixelRatio,
     username: username
   })
+    document.getElementById("canva").style.backgroundImage = value;
 })
 
 // -------------------------------------Mobile-----------------------------------
@@ -378,3 +408,8 @@ function MobileMVT(btn) {
       break
   }
 }
+
+// window.onload = function () {
+//   document.getElementById("bg").selectedIndex = 0;
+// };
+

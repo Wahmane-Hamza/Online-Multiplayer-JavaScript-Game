@@ -7,18 +7,52 @@
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
         margin: 0;
-        background: #94a3b8;
+        background: #333;
       }
 
       input::placeholder {
         color: #94a3b8;
       }
+            
+  .custom-select {
+    cursor: pointer;
+    margin-top: 20px;
+    width: 200px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    color: #cbd5e1;
+    background: #475569;
+  }
 
-      canvas {
-        /* width: 1024px;
-        height: 576px; */
-        background-image: url('/img/webb-dark.png');
-      }
+  .selected {
+    padding: 10px;
+  }
+
+  .options {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+  }
+
+  .option {
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .option-image{
+    size: cover;
+    height: 60px;
+    width: 100px;
+  }
+  .option:hover {
+    background-color: #f0f0f0;
+  }
     </style>
   </head>
   <body style="display: flex; align-items: center; justify-content: center">
@@ -37,7 +71,7 @@
         <div style="margin-bottom: 8px">Leaderboard</div>
         <div id="playerLabels"></div>
       </div>
-      <canvas></canvas>
+      <canvas id="canva"></canvas>
 
       <!-- Mobile Controle -->
       <div class="controls">
@@ -85,6 +119,27 @@
                 color: #cbd5e1;
               "
             />
+            <!-- <select name="bg" id="bg">
+              <option disabled>Select Background</option>
+              <option value="url(/img/black.png)">black</option>
+              <option value="url(/img/white.jpg)">white</option>
+              <option value="url(/img/blue.jpg)">blue</option>
+            </select> -->
+            <div class="custom-select">
+              <div class="selected" id="selectedOption">Select Background</div>
+              <div class="options">
+                <div class="option" data-value="url(/img/black.png)">
+                  <img src="/img/black.png" alt="Black" class="option-image"> Black
+                </div>
+                <div class="option" data-value="url(/img/white.jpg)">
+                  <img src="/img/white.jpg" alt="White" class="option-image"> White
+                </div>
+                <div class="option" data-value="url(/img/blue.jpg)">
+                  <img src="/img/blue.jpg" alt="Blue" class="option-image"> Blue
+                </div>
+              </div>
+            </div>
+          
           </div>
           <div style="text-align: center; margin-top: 8px">
             <button
