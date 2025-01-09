@@ -1,0 +1,48 @@
+.controls {
+    z-index: 100;
+    background-color: transparent;
+    position: absolute;
+    height: 150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.control {
+    background-color: transparent;
+    height: 100%;
+    width: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.controlsX {
+    flex-direction: row;
+}
+
+.controlsY {
+    flex-direction: column;
+}
+
+.controls button {
+    background-color: rgba(128, 128, 128, 0.294);
+    color: rgba(255, 255, 255, 0.464);
+    height: 60px;
+    width: 60px;
+    border: 2px solid rgba(128, 128, 128, 0.769);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.controls button:hover{
+    cursor: pointer;
+}
+.controls button:active{
+    opacity: 0.8;
+}
+
+
